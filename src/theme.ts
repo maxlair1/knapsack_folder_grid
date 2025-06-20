@@ -1,4 +1,15 @@
 const theme = {
+  sizes: {
+    "1": "0.25rem", // 4px
+    "2": "0.5rem", // 8px
+    "3": "1rem", // 16px
+    "4": "2rem", // 32px
+    "5": "4rem", // 64px
+    "6": "8rem", // 128px
+    "7": "16rem", // 256px
+    full: "100%",
+    hug: "fit-content",
+  },
   spacing: {
     xs: "0.25rem", // 4px
     sm: "0.5rem", // 8px
@@ -20,6 +31,7 @@ const theme = {
     round: "50%",
   },
   colors: {
+    transparent: "transparent",
     // Brand colors
     primary: {
       50: "#eff6ff",

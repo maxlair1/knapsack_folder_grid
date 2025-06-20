@@ -3,7 +3,7 @@ import React from "react";
 import * as Icons from "phosphor-react";
 import { IconProps as PhosphorIconProps } from "phosphor-react";
 
-type IconName = keyof typeof Icons;
+export type IconName = keyof typeof Icons;
 
 export interface IconProps extends Omit<PhosphorIconProps, "size"> {
   name: IconName;
@@ -17,10 +17,11 @@ export const Icon = ({
   weight = "regular",
   ...rest
 }: IconProps) => {
+  
   const PhosphorIcon = Icons[name] as React.ElementType;
 
   if (!PhosphorIcon) {
-    console.warn(`Icon "${name.toString}" does not exist in phosphor-react`);
+    console.warn(`Icon "${name.toString()}" does not exist in phosphor-react`);
     return null;
   }
 

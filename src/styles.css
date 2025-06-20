@@ -1,4 +1,84 @@
+/* TYPOGRAPHY */
+/* Inter ↴ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Monospaced (Fira Code and Jetbrains ↴ */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+/* TAILWIND ↴ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* GLOBAL STYLES ↴ */
+html,body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
+  min-height: 100vh;
+}
+
+@layer base {
+  /* Headings */
+  h1 {
+    @apply text-5xl font-bold leading-heading tracking-tighter text-text-primary;
+  }
+  h2 {
+    @apply text-4xl font-bold leading-heading tracking-tighter text-text-primary;
+  }
+  h3 {
+    @apply text-3xl font-semibold leading-heading tracking-tight text-text-primary;
+  }
+  h4 {
+    @apply text-2xl font-semibold leading-heading tracking-tight text-text-primary;
+  }
+  h5 {
+    @apply text-xl font-medium leading-heading text-text-primary;
+  }
+  h6 {
+    @apply text-xl font-medium leading-heading text-text-primary;
+  }
+
+  /* Paragraph Text */
+  p {
+    @apply text-md font-regular leading-relaxed text-text-primary;
+  }
+
+  /* Links */
+  a {
+    @apply text-md font-medium text-primary-600 hover:text-primary-500 focus:text-primary-700 underline;
+  }
+  /* Code */
+  code {
+    @apply font-monospace bg-neutral-100 text-sm px-1 py-1 rounded-md;
+  }
+  /* Keyboard Input */
+  kbd {
+    @apply font-monospace bg-neutral-200 text-xs px-2 py-1 rounded-md border-solid outline-neutral-400 shadow-inner;
+  }
+  /* Labels / Small Text */
+  label {
+    @apply text-sm font-medium text-text-secondary;
+  }
+  small {
+    @apply text-xs font-regular text-text-muted;
+  }
+}
+
+/* FOLDER COMPONENT */
+
+
+/* TRANSITIONS */
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}
+.transition-bouncy {
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition-property: transform;
 }
