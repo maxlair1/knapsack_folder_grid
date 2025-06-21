@@ -1,4 +1,5 @@
 import React from 'react';
+import theme from '../theme';
 
 type IconButtonProps = {
     icon: React.ReactElement;
@@ -8,6 +9,7 @@ type IconButtonProps = {
     disabled?: boolean;
     tabIndex?: number;
     title?: string;
+    selected?: boolean;
 };
 
 const sizeMap = {
@@ -17,6 +19,7 @@ const sizeMap = {
 };
 
 export const IconButton: React.FC<IconButtonProps> = ({
+    selected,
     icon,
     title,
     size = 'medium',
@@ -29,15 +32,21 @@ export const IconButton: React.FC<IconButtonProps> = ({
         role='button'
         title={title}
         type="button"
-        className={`transition-all rounded-md inline-flex items-center justify-center rounded enabled:hover:bg-neutral-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.90] ${sizeMap[size]} ${className}`}
+        className={`
+            flex-shrink-0 transition-all rounded-md inline-flex items-center justify-center rounded enabled:hover:bg-neutral-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.90] 
+            ${sizeMap[size]} 
+            ${className} 
+            ${selected && 'bg-primary-200'}
+        `}
         disabled={disabled}
         tabIndex={tabIndex}
         {...buttonProps}
     >
         {React.cloneElement(icon, {
             className: `w-full h-full ${icon.props.className || ''}`,
-            'aria-hidden': true, // Icon is decorative, label is used for screen readers
-            focusable: false, // Prevent SVG from being tabbed to
+            'aria-hidden': true,
+            focusable: false,
+            color: selected ? theme.colors.primary[800] : icon.props.color
         })}
     </button>
 );

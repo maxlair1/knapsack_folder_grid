@@ -71,5 +71,8 @@ export default {
         'gradient-primary': `linear-gradient(to bottom, ${theme.colors.primary[500]}, ${theme.colors.primary[600]})`,
       },
   },
+  future: {
+    hoverOnlyWhenSupported: true
+  },
   plugins: [],
 }

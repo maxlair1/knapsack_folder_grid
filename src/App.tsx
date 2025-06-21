@@ -3,10 +3,15 @@ import { FolderItem } from "./components/Folder";
 import { FolderGrid } from "./components/FolderGrid";
 import FakeNav from "./components/FakeNav";
 import theme from "./theme";
+import { useState } from "react";
+
+export type displayModeType = "compact" | "grid";
 
 export default function App() {
+  const [displayMode, setDisplayMode] = useState<displayModeType>("grid")
+
   return (
-    <div className="App min-h-screen">
+    <div id="App" className="App min-h-screen">
       <div
         className="bg-neutral-200 p-2 min-h-[100%] flex justify-center"
         style={{ minHeight: "100vh" }}
@@ -19,10 +24,10 @@ export default function App() {
           }}
         >
           <nav>
-            <FakeNav />
+            <FakeNav displayMode={displayMode} setDisplayMode={setDisplayMode} />
           </nav>
           <div className="flex-1 flex flex-col">
-            <FolderGrid />
+            <FolderGrid displayMode={displayMode}/>
           </div>
         </div>
       </div>
